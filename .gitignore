@@ -11,6 +11,11 @@
 npm-debug.log
 yarn-error.log
 
+# SonarCloud
+.sonarqube/
+.scannerwork/
+EOF
+
 # IDEs and editors
 .idea/
 .project
