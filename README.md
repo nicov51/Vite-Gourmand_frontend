@@ -1,27 +1,210 @@
-# ViteGourmandFront
+# 🍽️ Vite Gourmand - Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.5.
+> Application web de gestion de recettes développée avec Angular 18
 
-## Development server
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=nicov51_Vite-Gourmand_frontend&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=nicov51_Vite-Gourmand_frontend)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=nicov51_Vite-Gourmand_frontend&metric=bugs)](https://sonarcloud.io/summary/new_code?id=nicov51_Vite-Gourmand_frontend)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=nicov51_Vite-Gourmand_frontend&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=nicov51_Vite-Gourmand_frontend)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 📋 Table des matières
 
-## Code scaffolding
+- [Prérequis](#-prérequis)
+- [Installation](#-installation)
+- [Développement](#-développement)
+- [Tests](#-tests)
+- [Build et déploiement](#-build-et-déploiement)
+- [Qualité du code](#-qualité-du-code)
+- [Architecture](#-architecture)
+- [Scripts utiles](#-scripts-utiles)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## 🔧 Prérequis
 
-## Build
+Avant de commencer, assurez-vous d'avoir installé :
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- **Node.js** : Version 20.x ([Télécharger](https://nodejs.org/))
+- **npm** : Version 11.x+ (fourni avec Node.js)
+- **Angular CLI** : Version 18.x
 
-## Running unit tests
+```bash
+# Vérification des versions
+node --version    # v20.x.x
+npm --version     # 11.x.x+
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+# Installation d'Angular CLI si nécessaire
+npm install -g @angular/cli@18
+ng version
+```
 
-## Running end-to-end tests
+## 🚀 Installation
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### 1. Cloner le projet
 
-## Further help
+```bash
+git clone https://github.com/nicov51/Vite-Gourmand_frontend.git
+cd Vite-Gourmand_frontend
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### 2. Installer les dépendances
+
+```bash
+npm install
+```
+
+### 3. Démarrer l'application
+
+```bash
+# Lancement du serveur de développement
+ng serve
+
+# Ou avec npm
+npm start
+```
+
+L'application sera accessible à l'adresse : **http://localhost:4200**
+
+Le serveur redémarre automatiquement lors des modifications de code.
+
+## 💻 Développement
+
+### Serveur de développement
+
+```bash
+# Démarrage standard
+ng serve
+
+# Avec port personnalisé
+ng serve --port 4201
+```
+
+## 🧪 Tests
+
+### Tests unitaires
+
+```bash
+# Lancement des tests unitaires
+npm test
+
+# Tests avec surveillance des changements
+npm run test:watch
+
+# Tests en mode headless pour CI/CD
+npm run test:ci
+```
+
+### Linting
+
+```bash
+# Vérification du code (si configuré)
+ng lint
+
+# Correction automatique
+ng lint --fix
+```
+
+## 🏗️ Build et déploiement
+
+### Build de développement
+
+```bash
+ng build
+```
+
+### Build de production
+
+```bash
+# Build optimisé pour la production
+ng build --configuration production
+
+# Ou plus court
+ng build --prod
+```
+
+Les fichiers sont générés dans le dossier `dist/vite-gourmand-frontend/`
+
+### Preview du build de production
+
+```bash
+# Après avoir fait un build de production
+npx http-server dist/vite-gourmand-frontend -p 8080
+```
+
+## 📊 Qualité du code
+
+### SonarCloud
+
+Ce projet utilise **SonarCloud** pour l'analyse automatique de la qualité du code.
+
+- **Déclenchement** : À chaque push sur `main` ou `develop`
+- **Analyse** : Bugs, vulnérabilités, code smells, couverture de tests
+- **Seuils de qualité** :
+  - 🎯 Coverage : à definir
+  - 🐛 Bugs : 0 tolérance
+  - 🔒 Vulnerabilities : 0 tolérance
+  - 📊 Maintainability : A minimum
+
+**Accéder aux résultats :** [SonarCloud Dashboard](https://sonarcloud.io/project/overview?id=nicov51_Vite-Gourmand_frontend)
+
+### Configuration SonarCloud
+
+Le projet est configuré avec :
+- `sonar-project.properties` : Configuration des règles
+- `.github/workflows/build.yml` : Pipeline CI/CD
+
+## 📁 Architecture
+
+```
+src/app/
+├── components/        # Composants réutilisables
+├── directives/        # Directives personnalisées
+├── guards/           # Guards de navigation
+├── interceptors/     # Intercepteurs HTTP
+├── models/          # Interfaces et types TypeScript
+├── pipes/           # Pipes personnalisés
+├── services/        # Services applicatifs
+└── utils/           # Utilitaires et helpers
+```
+
+### Conventions de nommage
+
+- **Composants** : `recipe-card.component.ts`
+- **Services** : `recipe.service.ts`
+- **Models** : `recipe.interface.ts`
+- **Guards** : `auth.guard.ts`
+- **Pipes** : `truncate.pipe.ts`
+
+## Scripts utiles
+
+```bash
+# Package.json scripts disponibles
+npm start              # ng serve
+npm run build          # ng build
+npm run build:prod     # ng build --configuration production
+npm test               # Tests unitaires
+npm run test:watch     # Tests en mode surveillance
+npm run test:ci        # Tests pour CI/CD
+```
+
+## 🔗 Ressources utiles
+
+- **Documentation Angular** : [angular.io](https://angular.io)
+- **Angular CLI** : [cli.angular.io](https://cli.angular.io)
+- **SonarCloud** : [sonarcloud.io](https://sonarcloud.io)
+
+## 🤝 Contribution
+
+1. **Fork** le projet
+2. Créer une branche feature (`git checkout -b feature/my-feature`)
+3. **Commit** les changements (`git commit -m 'Add my-feature'`)
+4. **Push** vers la branche (`git push origin feature/my-feature`)
+5. Ouvrir une **Pull Request**
+
+## 👥 Équipe
+
+- **Développeur Principal** : Nicolas V.
+- **Framework** : Angular 18.2.x
+- **Qualité** : SonarCloud intégré
+
+---
+
+⭐ **N'hésitez pas à laisser une étoile si ce projet vous plaît !**
+

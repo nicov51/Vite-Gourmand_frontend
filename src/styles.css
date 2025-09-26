@@ -1,1 +1,386 @@
-/* You can add global styles to this file, and also import other style files */
+/* ===== VARIABLES CSS - VITE GOURMAND ===== */
+:root {
+  /* === COULEURS PRINCIPALES === */
+  --primary-burgundy: #722F37;
+  --primary-gold: #D4AF37;
+  --secondary-cream: #FDF6E3;
+  --secondary-sage: #87A96B;
+
+  /* === COULEURS FONCTIONNELLES === */
+  --success: #28A745;
+  --warning: #FFC107;
+  --error: #DC3545;
+  --info: #17A2B8;
+
+  /* === COULEURS NEUTRES === */
+  --white: #FFFFFF;
+  --light-gray: #F8F9FA;
+  --medium-gray: #6C757D;
+  --dark-gray: #343A40;
+  --black: #212529;
+
+  /* === TYPOGRAPHIE === */
+  --font-family-primary: 'Playfair Display', serif;
+  --font-family-secondary: 'Inter', sans-serif;
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  /* === TAILLES DE POLICE === */
+  --font-size-xs: 0.75rem;    /* 12px */
+  --font-size-sm: 0.875rem;   /* 14px */
+  --font-size-base: 1rem;     /* 16px */
+  --font-size-lg: 1.125rem;   /* 18px */
+  --font-size-xl: 1.25rem;    /* 20px */
+  --font-size-2xl: 1.5rem;    /* 24px */
+  --font-size-3xl: 1.875rem;  /* 30px */
+  --font-size-4xl: 2.25rem;   /* 36px */
+
+  /* === ESPACEMENT === */
+  --spacing-xs: 0.25rem;   /* 4px */
+  --spacing-sm: 0.5rem;    /* 8px */
+  --spacing-md: 1rem;      /* 16px */
+  --spacing-lg: 1.5rem;    /* 24px */
+  --spacing-xl: 2rem;      /* 32px */
+  --spacing-2xl: 3rem;     /* 48px */
+  --spacing-3xl: 4rem;     /* 64px */
+
+  /* === BORDURES === */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --border-width: 1px;
+
+  /* === OMBRES === */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+
+  /* === TRANSITIONS === */
+  --transition-fast: 0.15s ease-in-out;
+  --transition-normal: 0.3s ease-in-out;
+  --transition-slow: 0.5s ease-in-out;
+
+  /* === BREAKPOINTS (pour les media queries) === */
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+}
+
+/* ===== THEME ACCESSIBILITÉ RGAA ===== */
+[data-theme="accessible"] {
+  --primary-burgundy: #8B0000;
+  --primary-gold: #B8860B;
+  --secondary-cream: #FFFEF7;
+  --secondary-sage: #556B2F;
+  --medium-gray: #555555;
+  --dark-gray: #222222;
+
+  /* Contrastes renforcés */
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.2);
+  --border-width: 2px;
+}
+
+/* ===== RESET ET BASE ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family-secondary);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
+  line-height: 1.6;
+  color: var(--dark-gray);
+  background-color: var(--light-gray);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== TYPOGRAPHIE ===== */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.2;
+  margin-bottom: var(--spacing-md);
+  color: var(--primary-burgundy);
+}
+
+h1 { font-size: var(--font-size-4xl); }
+h2 { font-size: var(--font-size-3xl); }
+h3 { font-size: var(--font-size-2xl); }
+h4 { font-size: var(--font-size-xl); }
+h5 { font-size: var(--font-size-lg); }
+h6 { font-size: var(--font-size-base); }
+
+p {
+  margin-bottom: var(--spacing-md);
+}
+
+/* ===== BOUTONS ===== */
+.btn {
+  display: inline-block;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border: var(--border-width) solid transparent;
+  border-radius: var(--border-radius-md);
+  font-family: var(--font-family-secondary);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  min-height: 44px; /* RGAA - Zone de clic minimum */
+}
+
+.btn-primary {
+  background-color: var(--primary-burgundy);
+  color: var(--white);
+  border-color: var(--primary-burgundy);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-gold);
+  border-color: var(--primary-gold);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+  background-color: var(--secondary-sage);
+  color: var(--white);
+  border-color: var(--secondary-sage);
+}
+
+.btn-secondary:hover {
+  background-color: var(--primary-burgundy);
+  border-color: var(--primary-burgundy);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--primary-burgundy);
+  border-color: var(--primary-burgundy);
+}
+
+.btn-outline:hover {
+  background-color: var(--primary-burgundy);
+  color: var(--white);
+}
+
+.btn-alert {
+  background-color: var(--error);
+  color: var(--white);
+  border-color: var(--error);
+}
+
+/* ===== CARTES ===== */
+.card {
+  background-color: var(--white);
+  border: var(--border-width) solid var(--medium-gray);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: all var(--transition-normal);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.card-header {
+  padding: var(--spacing-lg);
+  background: linear-gradient(135deg, var(--primary-burgundy), var(--primary-gold));
+  color: var(--white);
+}
+
+.card-body {
+  padding: var(--spacing-lg);
+}
+
+.card-footer {
+  padding: var(--spacing-md) var(--spacing-lg);
+  background-color: var(--light-gray);
+  border-top: var(--border-width) solid var(--medium-gray);
+}
+
+/* ===== FORMULAIRES ===== */
+.form-group {
+  margin-bottom: var(--spacing-lg);
+}
+
+.form-label {
+  display: block;
+  margin-bottom: var(--spacing-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--dark-gray);
+}
+
+.form-control {
+  width: 100%;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: var(--border-width) solid var(--medium-gray);
+  border-radius: var(--border-radius-md);
+  font-size: var(--font-size-base);
+  transition: border-color var(--transition-normal);
+  min-height: 44px; /* RGAA */
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--primary-burgundy);
+  box-shadow: 0 0 0 2px rgba(114, 47, 55, 0.2);
+}
+
+/* ===== UTILITAIRES ===== */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.text-primary { color: var(--primary-burgundy); }
+.text-secondary { color: var(--secondary-sage); }
+.text-muted { color: var(--medium-gray); }
+.text-success { color: var(--success); }
+.text-warning { color: var(--warning); }
+.text-error { color: var(--error); }
+
+.bg-primary { background-color: var(--primary-burgundy); }
+.bg-light { background-color: var(--light-gray); }
+.bg-white { background-color: var(--white); }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 calc(-1 * var(--spacing-md));
+}
+
+.col {
+  flex: 1;
+  padding: 0 var(--spacing-md);
+}
+
+/* ===== ACCESSIBILITÉ ===== */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Focus visible pour navigation clavier */
+*:focus-visible {
+  outline: 2px solid var(--primary-burgundy);
+  outline-offset: 2px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  :root {
+    --font-size-4xl: 1.875rem; /* 30px */
+    --font-size-3xl: 1.5rem;   /* 24px */
+  }
+
+  .container {
+    padding: 0 var(--spacing-sm);
+  }
+
+  .row {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+    margin-bottom: var(--spacing-sm);
+  }
+}
+
+/* ===== DEMO CHARTE GRAPHIQUE (à supprimer après) ===== */
+.demo-charte {
+  padding: var(--spacing-2xl);
+  margin: var(--spacing-2xl) 0;
+  background-color: var(--white);
+  border-radius: var(--border-radius-lg);
+}
+
+.demo-couleurs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-2xl);
+}
+
+.couleur {
+  padding: var(--spacing-xl);
+  border-radius: var(--border-radius-md);
+  color: var(--white);
+  font-weight: var(--font-weight-medium);
+  text-align: center;
+}
+
+.couleur .dark-text {
+  color: var(--dark-gray);
+}
+
+.demo-typo {
+  margin-bottom: var(--spacing-2xl);
+}
+
+.demo-boutons {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-2xl);
+  flex-wrap: wrap;
+}
+
+.carte-recette {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.recipe-header {
+  position: relative;
+  height: 200px;
+  background: linear-gradient(135deg, var(--primary-burgundy), var(--primary-gold));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+}
+
+.recipe-info h3 {
+  color: var(--white);
+  margin: 0;
+}
+
+.difficulty-badge, .time-badge {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background-color: var(--secondary-cream);
+  color: var(--primary-burgundy);
+  border-radius: var(--border-radius-sm);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  margin-right: var(--spacing-sm);
+}
+
